@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+dnspython
+markupsafe
+python-multipart
+sqlalchemy
