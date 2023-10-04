@@ -1,11 +1,11 @@
 from sqlalchemy import create_engine
 # from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, declarative_base
-from decouple import config
+#from decouple import config
 
 
 def get_db_engine():
-    DB_TYPE = config("DB_TYPE")
+    '''DB_TYPE = config("DB_TYPE")
     DB_NAME = config("DB_NAME")
     DB_USER = config("DB_USER")
     DB_PASSWORD = config("DB_PASSWORD")
@@ -23,7 +23,10 @@ def get_db_engine():
     if DB_TYPE == "sqlite":
         db_engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
     else:
-        db_engine = create_engine(DATABASE_URL)
+        db_engine = create_engine(DATABASE_URL)'''
+    #the above commented out, not using external db
+    DATABASE_URL = "sqlite:///./database.db"
+    db_engine = create_engine(DATABASE_URL)
 
     return db_engine
 
