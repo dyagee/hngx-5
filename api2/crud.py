@@ -8,16 +8,16 @@ from models import VideoData, Chunks
 import os
 
 
-def create_empty(db:Session, file_id:str, media_type:str,file_extension:str):
+def db_create_empty(db:Session, file_id:str, media_type:str,file_extension:str):
     video_item =  VideoData(media_type=media_type,file_extension=file_extension,file_id=file_id)
     db.add(video_item)
     db.commit()
     db.refresh(video_item)
     return video_item
 
-def upload_chunk(db:Session, file_id:str,is_last:bool):
+def upload_chunk(db:Session, file_id:str,is_last:bool,blob_number:int):
     is_processed=True
-    chunk_item = Chunks(file_id=file_id,is_last=is_last,is_processed=is_processed)
+    chunk_item = Chunks(file_id=file_id,is_last=is_last,is_processed=is_processed,blob_number=blob_number)
     db.add(chunk_item)
     db.commit()
     db.refresh(chunk_item)

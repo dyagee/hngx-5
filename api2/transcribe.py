@@ -20,3 +20,5 @@ def transcribe_video(file_id:str,db:Session):
     video_item.transcribed = True
     db.commit()
     db.refresh(video_item)
+
+    #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

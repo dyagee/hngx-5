@@ -6,8 +6,10 @@ import os
 import uuid
 
 abs_path = os.getcwd()
-chunk_dir = os.makedirs(os.path.join(abs_path,"recording/chunks"),exist_ok=True)
-video_dir = os.makedirs(os.path.join(abs_path,"recording/videos"),exist_ok=True)
+chunk_dir = os.path.join(abs_path,"recording/chunks")
+os.makedirs(chunk_dir,exist_ok=True)
+video_dir = os.path.join(abs_path,"recording/videos")
+os.makedirs(video_dir,exist_ok=True)
 
 
 def create_empty(file_id):
@@ -48,7 +50,8 @@ def set_chunk_progress(db:Session,file_id:str,blob_number:int):
         pass
 def get_chunk_dir(file_id:str):
     dir = os.path.join(chunk_dir, f'chunk_{file_id}')
-    return os.makedirs(os.path.join(dir),exist_ok=True)
+    os.makedirs(dir,exist_ok=True)
+    return dir
 
 
 def get_video_dir(file_id:str):

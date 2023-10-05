@@ -8,11 +8,12 @@ class VideoData(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     file_name = Column(String)
+    file_path = Column(String)
     file_id = Column(String, default=False)
     media_type = Column(String, default="video/mp4")
     file_extension =Column(String,default="mp4")
     transcript = Column(Text,default="")
-    status = Column(Boolean,default=False)
+    status = Column(Boolean,default="pending")
     transcribed = Column(Boolean,default=False)
     created_at = Column(DateTime, server_default=func.now())
     updated_at = Column(DateTime, onupdate=func.now())
